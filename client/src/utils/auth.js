@@ -3,6 +3,7 @@ import decode from 'jwt-decode';
 class AuthService {
   // retrieve data saved in token
   getProfile() {
+    // console.log(decode(this.getToken()));
     return decode(this.getToken());
   }
 
@@ -31,6 +32,7 @@ class AuthService {
   // retrieve token from localStorage
   getToken() {
     // retrieves the user token from localStorage
+    // console.log(localStorage.getItem('id_token'));
     return localStorage.getItem('id_token');
   }
 
@@ -38,7 +40,7 @@ class AuthService {
   login(idToken) {
     // saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-
+    // console.log(localStorage.setItem('id_token', idToken));
     window.location.assign('/');
   }
 
